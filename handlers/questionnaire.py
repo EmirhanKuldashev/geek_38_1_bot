@@ -53,10 +53,10 @@ def register_questionnaire_handlers(dp: Dispatcher):
         lambda call: call.data == "mojo"
     )
     dp.register_callback_query_handler(
-        yes_python_answer(),
+        yes_python_answer,
         lambda call: call.data == "yes_python"
     )
     dp.register_callback_query_handler(
-        no_python_answer(),
+        no_python_answer,
         lambda call: call.data == "no_python"
     )
