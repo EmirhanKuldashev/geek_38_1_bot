@@ -5,38 +5,37 @@ from keyboards import questionnaire_inline_buttons
 async def questionnaire_start(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="Python or Mojo?",
+        text="English or German language?",
         reply_markup=await questionnaire_inline_buttons.questionnaire_keyboard()
     )
 
-async def python_answer(call: types.CallbackQuery):
+async def english_answer(call: types.CallbackQuery):
     await call.message.delete()
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="Oh cool, im python developer too\n"
-             "Do u want switch to another language ?",
-        reply_markup=await questionnaire_inline_buttons.python_questionnaire_keyboard()
+        text="Oh cool, i learn English too\n"
+             "Do you want to learn other languages ?",
+        reply_markup=await questionnaire_inline_buttons.english_questionnaire_keyboard()
+    )
+async def german_answer(call: types.CallbackQuery):
+    await call.message.delete()
+    await bot.send_message(
+        chat_id=call.from_user.id,
+        text="A good choice! now it is a very popular language"
     )
 
-async def mojo_answer(call: types.CallbackQuery):
+async def yes_english_answer(call: types.CallbackQuery):
     await call.message.delete()
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="Dont lie Mojo in alpha"
+        text="Learning foreign languages is great!"
     )
 
-async def yes_python_answer(call: types.CallbackQuery):
+async def no_english_answer(call: types.CallbackQuery):
     await call.message.delete()
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="Dont betray Python!"
-    )
-
-async def no_python_answer(call: types.CallbackQuery):
-    await call.message.delete()
-    await bot.send_message(
-        chat_id=call.from_user.id,
-        text="Cool, stay in python"
+        text="I advise you to learn more foreign languages"
     )
 
 def register_questionnaire_handlers(dp: Dispatcher):
@@ -45,18 +44,18 @@ def register_questionnaire_handlers(dp: Dispatcher):
         lambda call: call.data == "start_questionnaire"
     )
     dp.register_callback_query_handler(
-        python_answer,
-        lambda call: call.data == "python"
+        english_answer,
+        lambda call: call.data == "english"
     )
     dp.register_callback_query_handler(
-        mojo_answer,
-        lambda call: call.data == "mojo"
+        german_answer,
+        lambda call: call.data == "german"
     )
     dp.register_callback_query_handler(
-        yes_python_answer,
-        lambda call: call.data == "yes_python"
+        yes_english_answer,
+        lambda call: call.data == "yes_english"
     )
     dp.register_callback_query_handler(
-        no_python_answer,
-        lambda call: call.data == "no_python"
+        no_english_answer,
+        lambda call: call.data == "no_english"
     )
