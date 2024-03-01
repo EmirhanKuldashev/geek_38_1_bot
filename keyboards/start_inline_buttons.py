@@ -17,7 +17,12 @@ async def start_keyboard():
         "Third questionnaire",
         callback_data="start_third_questionnaire"
     )
+    check_bun_button = InlineKeyboardButton(
+        "Check ban",
+        callback_data="check_ban"
+    )
     markup.add(questionnaire_button)
     markup.add(second_questionnaire_button)
     markup.add(third_questionnaire_button)
+    markup.add(check_bun_button)
     return markup
