@@ -8,6 +8,5 @@ PROFILE_TEXT = 'Nickname: {nickname}\n' \
                'Bio: {bio}\n' \
                'Age: {age}-\n' \
                 'Job: {job}\n' \
-                'Language: {language}\n' \
                 'Hobby: {hobby}\n' \
                 'Gender: {gender}'

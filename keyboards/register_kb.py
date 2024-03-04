@@ -7,3 +7,4 @@ async def gen_kb():
     undef = KeyboardButton("secret")
     markup.add(male, female, undef)
     return markup
+

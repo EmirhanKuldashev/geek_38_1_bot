@@ -92,7 +92,7 @@ async def load_photo(message: types.Message, state: FSMContext):
             photo=path.name
         )
 
-    with open(path.name, "rb") as photo_file:
+    with open(path.name,"rb") as photo_file:
         await bot.send_photo(
             chat_id=message.from_user.id,
             photo=photo_file,
