@@ -29,6 +29,10 @@ async def start_keyboard():
         "View Profiles",
         callback_data="random_profiles"
     )
+    news_button = InlineKeyboardButton(
+        "Latest News",
+        callback_data="latest_news"
+    )
 
     markup.add(questionnaire_button)
     markup.add(second_questionnaire_button)
@@ -36,4 +40,5 @@ async def start_keyboard():
     markup.add(check_bun_button)
     markup.add(register_button)
     markup.add(profiles_button)
+    markup.add(news_button)
     return markup

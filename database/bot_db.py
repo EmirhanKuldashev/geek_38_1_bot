@@ -15,6 +15,7 @@ class Database:
         self.connection.execute(sql_queries.CREATE_BAN_TABLE_QUERY)
         self.connection.execute(sql_queries.CREATE_PROFILE_TABLE_QUERY)
         self.connection.execute(sql_queries.CREATE_LIKE_TABLE_QUERY)
+        self.connection.execute(sql_queries.CREATE_NEWS_TABLE_QUERY)
 
         self.connection.commit()
 
@@ -77,5 +78,12 @@ class Database:
         self.cursor.execute(
             sql_queries.INSERT_LIKE_QUERY,
             (None, owner, liker,)
+        )
+        self.connection.commit()
+
+    def sql_insert_news(self, tg_id, link):
+        self.cursor.execute(
+            sql_queries.INSERT_NEWS_QUERY,
+            (None, tg_id, link)
         )
         self.connection.commit()

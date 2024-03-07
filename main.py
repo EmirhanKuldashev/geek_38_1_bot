@@ -5,7 +5,7 @@ from handlers import (
     questionnaire,second_questionnaire,third_questionnaire,
     admin_bot,
     fsn_register,
-    profile
+    profile,
 
 )
 from database import bot_db
@@ -22,6 +22,7 @@ third_questionnaire.register_third_questionnaire_handlers(dp=dp)
 fsn_register.register_registration_handlers(dp=dp)
 admin_bot.register_chat_actions_handler(dp=dp)
 profile.register_profile_handlers(dp=dp)
+
 
 if __name__ == "__main__":
     executor.start_polling(
